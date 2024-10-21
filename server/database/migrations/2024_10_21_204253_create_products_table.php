@@ -15,15 +15,14 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('shopping_list_id')->constrained()->onDelete('cascade'); // Reference to ShoppingList
+            $table->string('name');  // Product name
+            $table->integer('quantity');  // Quantity of the product
+            $table->boolean('is_purchased')->default(false);  // If the product is purchased
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('products');
