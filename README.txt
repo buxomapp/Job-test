@@ -1,0 +1,1 @@
+sadece kullanıcı arayüzü olmadan bir örnek yaptım
