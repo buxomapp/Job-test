@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/shopping-lists', [ShoppingListController::class, 'index']);
+Route::post('/shopping-lists', [ShoppingListController::class, 'store']);
+Route::get('/shopping-lists/{id}', [ShoppingListController::class, 'show']);
+Route::post('/shopping-lists/{id}/products', [ProductController::class, 'store']);
+Route::patch('/products/{id}', [ProductController::class, 'update']);
